@@ -1,93 +1,146 @@
-import { ArrowUpRight, MapPin, Phone } from "lucide-react";
+import {
+  ArrowUpRight,
+  MapPin,
+  Phone,
+} from "lucide-react";
 import { motion } from "framer-motion";
+
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Menu", href: "#menu" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "Location", href: "#location" },
+];
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#E21B23] text-white">
+    <footer className="relative overflow-hidden bg-[#090909] text-white">
 
-      {/* =====================================================
+      {/* =========================================================
           FINAL CTA
-      ====================================================== */}
+      ========================================================== */}
 
-      <section className="relative px-6 py-24 md:px-10 md:py-36 lg:px-16 lg:py-44">
+      <section className="relative overflow-hidden bg-[#E21B23]">
 
-        {/* Decorative Diamond */}
+        {/* Large background typography */}
         <div
+          aria-hidden="true"
           className="
             pointer-events-none
             absolute
-            left-1/2
-            top-1/2
-            h-[300px]
-            w-[300px]
-            -translate-x-1/2
-            -translate-y-1/2
-            rotate-45
-            border
-            border-white/10
-            sm:h-[420px]
-            sm:w-[420px]
-            md:h-[600px]
-            md:w-[600px]
+            -bottom-8
+            left-0
+            select-none
+            font-[Poppins]
+            text-[30vw]
+            font-bold
+            leading-none
+            tracking-[-0.1em]
+            text-black/[0.06]
+            md:-bottom-16
+          "
+        >
+          KITE
+        </div>
+
+        {/* Decorative vertical line */}
+        <div
+          aria-hidden="true"
+          className="
+            absolute
+            left-6
+            top-0
+            h-full
+            w-px
+            bg-white/10
+            md:left-10
+            lg:left-16
           "
         />
 
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div
+          className="
+            relative
+            z-10
+            mx-auto
+            max-w-7xl
+            px-6
+            py-24
+            md:px-10
+            md:py-32
+            lg:px-16
+            lg:py-40
+          "
+        >
 
-          {/* =================================================
-              CTA CONTENT
-          ================================================== */}
+          {/* Small label */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="flex items-center gap-4"
+          >
+            <span className="h-px w-10 bg-white/60" />
 
-          <div className="text-left md:text-center">
-
-            {/* Label */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <span
               className="
-                mb-6
                 font-[Poppins]
-                text-[10px]
+                text-[9px]
                 font-medium
                 uppercase
                 tracking-[0.35em]
-                text-white/60
-                md:text-xs
-                md:tracking-[0.4em]
+                text-white/70
               "
             >
               Your next stop
-            </motion.p>
+            </span>
+          </motion.div>
 
-            {/* Title */}
-            <div className="overflow-hidden">
+          {/* Main heading */}
+          <div className="mt-8 overflow-hidden">
 
-              <motion.h2
-                initial={{ y: "100%" }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.9,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="
-                  font-[Poppins]
-                  text-[clamp(4rem,18vw,11rem)]
-                  font-semibold
-                  leading-[0.78]
-                  tracking-[-0.08em]
-                  text-white
-                  md:text-[clamp(6rem,13vw,11rem)]
-                "
-              >
-                CAFE
-                <br className="sm:hidden" />
-                <span className="sm:ml-5">KITE</span>
-              </motion.h2>
+            <motion.h2
+              initial={{ y: "100%" }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="
+                max-w-6xl
+                font-[Poppins]
+                text-[clamp(4.5rem,13vw,11rem)]
+                font-semibold
+                leading-[0.78]
+                tracking-[-0.08em]
+                text-white
+              "
+            >
+              COME.
+              <br />
+              <span className="text-black/20">
+                STAY.
+              </span>
+            </motion.h2>
 
-            </div>
+          </div>
+
+          {/* Bottom content */}
+          <div
+            className="
+              mt-12
+              flex
+              flex-col
+              gap-10
+              md:mt-16
+              md:flex-row
+              md:items-end
+              md:justify-between
+            "
+          >
 
             {/* Description */}
             <motion.p
@@ -95,150 +148,105 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                delay: 0.25,
+                delay: 0.2,
                 duration: 0.7,
               }}
               className="
-                mt-8
                 max-w-md
                 font-[Poppins]
                 text-sm
                 leading-6
-                text-white/70
-                md:mx-auto
-                md:mt-10
+                text-white/75
                 md:text-base
               "
             >
               Good food, good coffee and better moments.
-              Come by, slow down and stay a while.
+              A place to slow down, connect and stay a little
+              longer.
             </motion.p>
 
-            {/* =================================================
-                CTA BUTTONS
-            ================================================== */}
-
-            <motion.div
+            {/* CTA */}
+            <motion.a
+              href="#location"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                delay: 0.4,
+                delay: 0.3,
                 duration: 0.7,
               }}
               className="
-                mt-8
-                flex
-                flex-col
-                items-start
-                justify-start
+                group
+                inline-flex
+                w-fit
+                items-center
                 gap-4
-                sm:flex-row
-                md:items-center
-                md:justify-center
+                rounded-full
+                bg-white
+                px-6
+                py-4
+                font-[Poppins]
+                text-sm
+                font-semibold
+                text-black
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:bg-black
+                hover:text-white
               "
             >
+              Find Cafe Kite
 
-              {/* Visit Cafe */}
-              <a
-                href="#location"
+              <span
                 className="
-                  group
-                  inline-flex
+                  flex
+                  h-8
+                  w-8
                   items-center
-                  gap-4
+                  justify-center
                   rounded-full
-                  bg-white
-                  px-7
-                  py-4
-                  font-[Poppins]
-                  text-sm
-                  font-semibold
-                  text-black
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:bg-black
-                  hover:text-white
-                "
-              >
-                Visit Cafe Kite
-
-                <span
-                  className="
-                    flex
-                    h-7
-                    w-7
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-black
-                    text-white
-                    transition-all
-                    duration-300
-                    group-hover:rotate-45
-                    group-hover:bg-[#E21B23]
-                  "
-                >
-                  <ArrowUpRight size={15} />
-                </span>
-              </a>
-
-              {/* Call */}
-              <a
-                href="tel:+919000000000"
-                className="
-                  inline-flex
-                  items-center
-                  gap-3
-                  rounded-full
-                  border
-                  border-white/30
-                  px-7
-                  py-4
-                  font-[Poppins]
-                  text-sm
-                  font-semibold
+                  bg-[#E21B23]
                   text-white
                   transition-all
                   duration-300
-                  hover:border-white
-                  hover:bg-white
-                  hover:text-black
+                  group-hover:rotate-45
+                  group-hover:bg-white
+                  group-hover:text-black
                 "
               >
-                <Phone size={16} />
-                Call Us
-              </a>
-
-            </motion.div>
+                <ArrowUpRight size={16} />
+              </span>
+            </motion.a>
 
           </div>
 
         </div>
       </section>
 
-      {/* =====================================================
-          FOOTER CONTENT
-      ====================================================== */}
 
-      <div className="border-t border-white/15">
+      {/* =========================================================
+          MAIN FOOTER
+      ========================================================== */}
+
+      <section className="bg-[#090909]">
 
         <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
 
-          {/* =================================================
-              MAIN FOOTER
-          ================================================== */}
+          {/* =====================================================
+              TOP FOOTER
+          ====================================================== */}
 
           <div
             className="
               grid
-              gap-12
-              py-12
-              text-left
-              sm:py-14
-              md:grid-cols-2
-              lg:grid-cols-4
+              gap-14
+              border-b
+              border-white/10
+              py-16
+              md:py-20
+              lg:grid-cols-[1.5fr_1fr_1fr]
+              lg:gap-20
             "
           >
 
@@ -246,29 +254,38 @@ export default function Footer() {
                 BRAND
             ================================================== */}
 
-            <div className="lg:col-span-2">
+            <div>
 
-              <img
-                src="/cafe-kite-logo.png"
-                alt="Cafe Kite"
-                className="w-36"
-              />
+              <a
+                href="#home"
+                className="inline-block"
+              >
+                <img
+                  src="/Cafe_kite.png"
+                  alt="Cafe Kite"
+                  className="h-16 w-auto md:h-20"
+                />
+              </a>
 
               <p
                 className="
-                  mt-6
+                  mt-7
                   max-w-sm
                   font-[Poppins]
                   text-sm
-                  leading-6
-                  text-white/60
+                  leading-7
+                  text-white/45
                 "
               >
-                Coffee, bakes, comfort food and good moments
-                from Cafe Kite.
+                Specialty coffee, fresh bakes and comfort food
+                served with a little more character.
               </p>
 
+              {/* Instagram */}
+              
+
             </div>
+
 
             {/* =================================================
                 NAVIGATION
@@ -278,157 +295,161 @@ export default function Footer() {
 
               <p
                 className="
-                  mb-5
+                  mb-7
                   font-[Poppins]
-                  text-[10px]
-                  font-semibold
+                  text-[9px]
+                  font-medium
                   uppercase
-                  tracking-[0.3em]
-                  text-white/40
+                  tracking-[0.35em]
+                  text-white/30
                 "
               >
                 Explore
               </p>
 
-              <div
-                className="
-                  flex
-                  flex-col
-                  items-start
-                  gap-3
-                  font-[Poppins]
-                  text-sm
-                "
-              >
+              <nav className="flex flex-col gap-4">
 
-                <a
-                  href="#about"
-                  className="transition hover:text-black"
-                >
-                  About
-                </a>
+                {navItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="
+                      group
+                      flex
+                      w-fit
+                      items-center
+                      gap-3
+                      font-[Poppins]
+                      text-sm
+                      text-white/65
+                      transition-all
+                      duration-300
+                      hover:text-white
+                    "
+                  >
+                    <span
+                      className="
+                        h-px
+                        w-0
+                        bg-[#E21B23]
+                        transition-all
+                        duration-300
+                        group-hover:w-5
+                      "
+                    />
 
-                <a
-                  href="#menu"
-                  className="transition hover:text-black"
-                >
-                  Menu
-                </a>
+                    {item.label}
+                  </a>
+                ))}
 
-                <a
-                  href="#gallery"
-                  className="transition hover:text-black"
-                >
-                  Gallery
-                </a>
-
-                <a
-                  href="#reviews"
-                  className="transition hover:text-black"
-                >
-                  Reviews
-                </a>
-
-                <a
-                  href="#location"
-                  className="transition hover:text-black"
-                >
-                  Location
-                </a>
-
-              </div>
+              </nav>
 
             </div>
 
+
             {/* =================================================
-                CONTACT
+                LOCATION
             ================================================== */}
 
             <div>
 
               <p
                 className="
-                  mb-5
+                  mb-7
                   font-[Poppins]
-                  text-[10px]
-                  font-semibold
+                  text-[9px]
+                  font-medium
                   uppercase
-                  tracking-[0.3em]
-                  text-white/40
+                  tracking-[0.35em]
+                  text-white/30
                 "
               >
                 Find Us
               </p>
 
-              <div className="space-y-5">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Cafe+Kite+Kattappana+Kerala"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  group
+                  flex
+                  items-start
+                  gap-4
+                "
+              >
 
-                {/* Address */}
-                <div className="flex items-start gap-3">
-
-                  <MapPin
-                    size={17}
-                    className="mt-0.5 shrink-0"
-                  />
-
-                  <p
-                    className="
-                      font-[Poppins]
-                      text-sm
-                      leading-6
-                      text-white/70
-                    "
-                  >
-                    NH 185, Kattappana Road
-                    <br />
-                    Near Calvarymount
-                    <br />
-                    Kerala, India
-                  </p>
-
-                </div>
-
-                {/* Phone */}
-                <a
-                  href="tel:+919000000000"
+                <MapPin
+                  size={18}
                   className="
-                    flex
-                    items-center
-                    gap-3
+                    mt-1
+                    shrink-0
+                    text-[#E21B23]
+                    transition-transform
+                    duration-300
+                    group-hover:-translate-y-1
+                  "
+                />
+
+                <p
+                  className="
                     font-[Poppins]
                     text-sm
-                    text-white/70
+                    leading-6
+                    text-white/55
                     transition
-                    hover:text-black
+                    group-hover:text-white
                   "
                 >
-                  <Phone size={16} />
+                  NH 185, Kattappana Road
+                  <br />
+                  Near Calvarymount
+                  <br />
+                  Kerala, India
+                </p>
 
-                  +91 90000 00000
-                </a>
+              </a>
 
-              </div>
+              <a
+                href="tel:+919000000000"
+                className="
+                  mt-6
+                  flex
+                  items-center
+                  gap-4
+                  font-[Poppins]
+                  text-sm
+                  text-white/55
+                  transition
+                  hover:text-white
+                "
+              >
+                <Phone
+                  size={17}
+                  className="text-[#E21B23]"
+                />
+
+                +91 90000 00000
+              </a>
 
             </div>
 
           </div>
 
-          {/* =================================================
-              BOTTOM FOOTER
-          ================================================== */}
+
+          {/* =====================================================
+              BOTTOM BAR
+          ====================================================== */}
 
           <div
             className="
               flex
               flex-col
-              items-start
-              justify-between
-              gap-4
-              border-t
-              border-white/15
-              py-6
-              text-left
+              gap-5
+              py-7
               sm:flex-row
               sm:items-center
+              sm:justify-between
             "
           >
 
@@ -437,34 +458,36 @@ export default function Footer() {
                 font-[Poppins]
                 text-[9px]
                 uppercase
-                tracking-[0.18em]
-                text-white/40
-                md:text-[10px]
-                md:tracking-[0.2em]
+                tracking-[0.2em]
+                text-white/25
               "
             >
-              © 2026 Cafe Kite. All rights reserved.
+              © 2026 Cafe Kite
             </p>
 
-            <p
-              className="
-                font-[Poppins]
-                text-[9px]
-                uppercase
-                tracking-[0.18em]
-                text-white/40
-                md:text-[10px]
-                md:tracking-[0.2em]
-              "
-            >
-              Coffee · Bakes · Good Moments
-            </p>
+            <div className="flex items-center gap-3">
+
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E21B23]" />
+
+              <p
+                className="
+                  font-[Poppins]
+                  text-[9px]
+                  uppercase
+                  tracking-[0.2em]
+                  text-white/25
+                "
+              >
+                Coffee · Bakes · Good Moments
+              </p>
+
+            </div>
 
           </div>
 
         </div>
 
-      </div>
+      </section>
 
     </footer>
   );
